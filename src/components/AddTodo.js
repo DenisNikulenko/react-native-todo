@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button, Alert } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import { THEME } from "../theme";
+import { AppButton } from "./ui/AppButton";
 
 export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState("");
@@ -24,7 +26,13 @@ export const AddTodo = ({ onSubmit }) => {
         value={value}
         placeholder="Ввод..."
       />
-      <Button style={styles.btn} title="добавить" onPress={pressHandler} />
+      <AppButton onPress={pressHandler}>
+        <Feather
+          backgroundColor={THEME.MAIN_COLOR}
+          size={20}
+          name="plus"
+        ></Feather>
+      </AppButton>
     </View>
   );
 };
@@ -39,13 +47,10 @@ const styles = StyleSheet.create({
 
   input: {
     padding: 10,
-    width: "65%",
+    width: "70%",
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
     borderRadius: 3,
-  },
-  btn: {
-    color: "red",
   },
 });

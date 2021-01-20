@@ -1,28 +1,42 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { THEME } from "../theme";
 import { AppTextBold } from "./ui/AppTextBold";
 
-export const Navbar = ({ title }) => {
+
+export const Navbar = ({title}) => {
+  let content = (
+    <View style={styles.logo}> 
+      <MaterialIcons name="notes" size={24} color="white" />
+      <Text style={styles.text}>{title}</Text>
+    </View>
+  );
   return (
     <View style={styles.navbar}>
-      <AppTextBold style={styles.text}>{title}</AppTextBold>
+      <AppTextBold>{content}</AppTextBold>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   navbar: {
+    flexDirection: "row",
+    justifyContent: "center",
     height: 65,
-    alignItems: "center",
-    justifyContent: "flex-end",
+    alignItems: "flex-end",
     backgroundColor: THEME.MAIN_COLOR,
   },
 
   text: {
     color: "#fff",
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
   },
+  logo: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end"
+    }
 });

@@ -6,7 +6,7 @@ import { Todo } from "../components/Todo";
 export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
   let content = (
     <FlatList
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={item => item.id.toString()}
       data={todos}
       renderItem={({ item }) => (
         <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />

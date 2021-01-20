@@ -7,6 +7,9 @@ import {
   Modal,
   Alert,
 } from "react-native";
+import { Ionicons, Fontisto } from "@expo/vector-icons";
+
+import { AppButton } from "./ui/AppButton";
 import { THEME } from "../theme";
 
 export const EditModal = ({ value, visible, onCancel, onSave }) => {
@@ -20,7 +23,7 @@ export const EditModal = ({ value, visible, onCancel, onSave }) => {
         } символов`
       );
     } else {
-      onSave(title)
+      onSave(title);
     }
   };
 
@@ -35,12 +38,19 @@ export const EditModal = ({ value, visible, onCancel, onSave }) => {
           maxLength={64}
         />
         <View style={styles.buttons}>
-          <Button
+          {/* <Button
             title="Cancel"
             onPress={onCancel}
             color={THEME.DANGER_COLOR}
-          />
-          <Button title="Save" onPress={saveHandler} />
+          /> */}
+          <AppButton onPress={onCancel} backgroundColor={THEME.DANGER_COLOR}>
+            <Ionicons name="arrow-back" size={22} color="white" />
+          </AppButton>
+          <AppButton  onPress={saveHandler}>
+            <Fontisto name="save" size={24} color="white" />
+          </AppButton>
+
+          {/* <Button title="Save" onPress={saveHandler} /> */}
         </View>
       </View>
     </Modal>
@@ -63,7 +73,7 @@ const styles = StyleSheet.create({
 
   buttons: {
     width: "80%",
-    marginTop: 10,
+    marginTop: 20,
     flexDirection: "row",
     justifyContent: "space-between",
   },

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View, Alert, Text } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 
@@ -57,7 +57,7 @@ export default function App() {
           text: "Удалить",
           onPress: () => {
             setTodoId(null);
-            setTodos((prev) => prev.filter((todo) => todo.id !== id));
+            setTodos(prev => prev.filter(todo => todo.id !== id));
           },
         },
       ],
@@ -66,8 +66,8 @@ export default function App() {
   };
 
   const updateTodo = (id, title) => {
-    setTodos((old) =>
-      old.map((todo) => {
+    setTodos(old =>
+      old.map(todo => {
         if (todo.id === id) {
           todo.title = title;
         }
@@ -81,14 +81,14 @@ export default function App() {
       todos={todos}
       addTodo={addTodo}
       removeTodo={removeTodo}
-      openTodo={(id) => {
+      openTodo={id => {
         setTodoId(id);
       }}
     />
   );
 
   if (todoId) {
-    const selectedTodo = todos.find((todo) => todo.id === todoId);
+    const selectedTodo = todos.find(todo => todo.id === todoId);
     content = (
       <TodoScreen
         onRemove={removeTodo}
@@ -97,21 +97,22 @@ export default function App() {
         onSave={updateTodo}
       />
     );
-  }
+	}
+	
+
 
   return (
     <View>
       <StatusBar />
-      <Navbar title="Todo APP" />
+      <Navbar title="ToDo..." />
       <View style={styles.container}>{content}</View>
     </View>
   );
 }
-``;
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 12,
     paddingVertical: 10,
-  },
+	},
 });
