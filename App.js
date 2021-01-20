@@ -1,27 +1,49 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, View, ScrollView, FlatList, Alert } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
 
 import { Navbar } from "./src/components/Navbar";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
 
+async function loadAplication() {
+  await Font.loadAsync({
+    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
+}
+
 export default function App() {
+  const [isReady, setIsReady] = useState(false);
   const [todoId, setTodoId] = useState(null);
   const [todos, setTodos] = useState([
-    // { id: "1", title: "Выучить React Native" }
+		{ id: "1", title: "Выучить React Native" },
+		{ id: "2", title: "Сходить в магазин" },
+		{ id: "3", title: "Что делать с машинкой" }
   ]);
 
-  const addTodo = (title) => {
+  if (!isReady) {
+    return (
+      <AppLoading
+        startAsync={loadAplication}
+        onError={err => console.log(err)}
+        onFinish={() => setIsReady(true)}
+      />
+    );
+  }
+
+  const addTodo = title => {
     const newTodo = {
       id: Date.now().toString(),
       title,
     };
-    setTodos((prev) => [...prev, newTodo]);
+    setTodos(prev => [...prev, newTodo]);
   };
 
   const removeTodo = (id) => {
-    const todo = todos.find((t) => t.id === id);
+    const todo = todos.find(t => t.id === id);
 
     Alert.alert(
       "Удаление элемена",
@@ -44,13 +66,15 @@ export default function App() {
   };
 
   const updateTodo = (id, title) => {
-    setTodos(old => old.map(todo => {
-        if(todo.id === id) {
-            todo.title = title
-        } 
+    setTodos((old) =>
+      old.map((todo) => {
+        if (todo.id === id) {
+          todo.title = title;
+        }
         return todo;
-    }))
-  }
+      })
+    );
+  };
 
   let content = (
     <MainScreen

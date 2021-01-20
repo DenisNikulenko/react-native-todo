@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList, Text, Image } from "react-native";
+import { StyleSheet, View, FlatList, Image } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
 
@@ -13,11 +13,16 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
       )}
     />
   );
+
   if (todos.length === 0) {
-     content = (
-     <View style={styles.imgWrap}>
-       <Image source={require("../../assets/no-items.png")} />
-     </View>)
+    content = (
+      <View style={styles.imgWrap}>
+        <Image
+          style={styles.image}
+          source={require("../../assets/noneTasks.png")}
+        />
+      </View>
+    );
   }
 
   return (
@@ -33,6 +38,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
-    height: 300
-  }
+    height: 400,
+  },
+
+  image: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+    borderRadius: 100,
+  },
 });
