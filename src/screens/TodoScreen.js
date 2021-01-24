@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 
 import { AppCard } from "../components/ui/AppCard";
 import { AppTextBold } from "../components/ui/AppTextBold";
 import { AppButton } from "../components/ui/AppButton";
 import { THEME } from "../theme";
+
 import { EditModal } from "../components/EditModal";
 
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
@@ -54,15 +55,15 @@ const styles = StyleSheet.create({
   },
 
   btn: {
-    width: "25%",
+    width: "25%"
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 22
   },
 
   card: {
     marginBottom: 20,
-    padding: 15,
-  },
+    padding: 15
+  }
 });

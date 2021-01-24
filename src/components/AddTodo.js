@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Alert, Keyboard } from "react-native";
 import { Feather } from "@expo/vector-icons";
+
 import { THEME } from "../theme";
 import { AppButton } from "./ui/AppButton";
 
@@ -11,7 +12,7 @@ export const AddTodo = ({ onSubmit }) => {
     if (value.trim()) {
       onSubmit(value);
       setValue("");
-      Keyboard.dismiss()
+      Keyboard.dismiss();
     } else {
       Alert.alert("Поле пустое");
     }
@@ -21,7 +22,7 @@ export const AddTodo = ({ onSubmit }) => {
     <View style={styles.block}>
       <TextInput
         style={styles.input}
-        onChangeText={(text) => {
+        onChangeText={text => {
           setValue(text);
         }}
         value={value}
@@ -52,6 +53,6 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
-    borderRadius: 3,
-  },
+    borderRadius: 3
+  }
 });

@@ -13,8 +13,7 @@ export const Navbar = ({ title }) => {
           ios: styles.navbarIos,
           android: styles.navbarAndroind,
         }),
-        ...styles.navbar
-   
+        ...styles.navbar,
       }}
     >
       <MaterialIcons name="notes" size={24} color="white" />
@@ -23,7 +22,7 @@ export const Navbar = ({ title }) => {
   );
   return (
     <View style={styles.navbar}>
-      <AppTextBold>{content}</AppTextBold>
+      <AppTextBold>{ content }</AppTextBold>
     </View>
   );
 };
@@ -38,25 +37,17 @@ const styles = StyleSheet.create({
   },
 
   navbarAndroind: {
-    backgroundColor: THEME.MAIN_COLOR,
+    backgroundColor: THEME.MAIN_COLOR
   },
 
   navbarIos: {
     borderBottomColor: THEME.MAIN_COLOR,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
 
   text: {
     color: Platform.OS === "ios" ? THEME.MAIN_COLOR : "#fff",
     fontSize: 28,
-    fontWeight: "bold",
-  },
-
+    fontWeight: "bold"
+  }
 });
-
-
-// logo: {
-//   flexDirection: "row",
-//   alignItems: "center",
-//   justifyContent: "flex-end",
-// },

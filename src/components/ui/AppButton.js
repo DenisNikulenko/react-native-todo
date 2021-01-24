@@ -23,7 +23,7 @@ export const AppButton = ({
     <Wrapper activeOpacity={0.7} onPress={onPress}>
       <View style={{ ...styles.button, backgroundColor: backgroundColor }}>
         <AppTextBold style={{ ...styles.text, color: color }}>
-          {children}
+          { children }
         </AppTextBold>
       </View>
     </Wrapper>
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   text: {
-    color: "white",
-  },
+    color: "white"
+  }
 });

@@ -28,7 +28,7 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
   return (
     <View>
       <AddTodo onSubmit={addTodo} />
-      {content}
+      { content }
     </View>
   );
 };
@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 10,
-    height: 400,
+    height: 400
   },
 
   image: {
     width: "100%",
     height: "100%",
     resizeMode: "contain",
-    borderRadius: 100,
-  },
+    borderRadius: 100
+  }
 });

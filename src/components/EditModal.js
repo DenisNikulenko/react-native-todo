@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   TextInput,
-  Button,
   Modal,
   Alert,
 } from "react-native";
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   wrap: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
 
   input: {
@@ -75,6 +74,6 @@ const styles = StyleSheet.create({
     width: "80%",
     marginTop: 20,
     flexDirection: "row",
-    justifyContent: "space-between",
-  },
+    justifyContent: "space-between"
+  }
 });
