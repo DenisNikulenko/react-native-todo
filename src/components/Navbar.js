@@ -5,6 +5,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { THEME } from "../theme";
 import { AppTextBold } from "./ui/AppTextBold";
 
+//Адаптивный header под Android, Ios. Exp in App.
+
 export const Navbar = ({ title }) => {
   let content = (
     <View

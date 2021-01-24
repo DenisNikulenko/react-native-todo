@@ -3,6 +3,8 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 
 import { AppTextBold } from "../components/ui/AppTextBold";
 
+//ToDo список на MainScreen. exp in MainSreen.
+
 export const Todo = ({ todo, onRemove, onOpen }) => {
   return (
     <TouchableOpacity

@@ -5,6 +5,8 @@ import { Feather } from "@expo/vector-icons";
 import { THEME } from "../theme";
 import { AppButton } from "./ui/AppButton";
 
+// Добавление ToDo item`s.
+
 export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState("");
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
+// Сторонние шрифты, Regular жирность.
+
 export const AppText = props => (
   <Text style={{ ...styles.default, ...props.style }}>{props.children}</Text>
 );

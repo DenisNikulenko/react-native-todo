@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Dimensions } from "react-native";
 import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 
 import { AppCard } from "../components/ui/AppCard";
@@ -9,10 +9,12 @@ import { THEME } from "../theme";
 
 import { EditModal } from "../components/EditModal";
 
+// 2й Экран. Изм item`s, удаление, возврат на MainScreen. Exp in App.
+
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false);
 
-  const saveHandler = (title) => {
+  const saveHandler = title => {
     onSave(todo.id, title);
     setModal(false);
   };
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
   },
 
   btn: {
-    width: "25%"
+    width: Dimensions.get("window").width / 6
   },
 
   title: {

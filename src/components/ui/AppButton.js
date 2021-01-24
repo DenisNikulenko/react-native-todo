@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   StyleSheet,
   View,
@@ -10,6 +11,8 @@ import {
 import { THEME } from "../../theme";
 import { AppTextBold } from "./AppTextBold";
 
+// Адаптивная кнопка Androind, Ios. Принимает событие, цвет текста, задний фон.
+
 export const AppButton = ({
   children,
   onPress,
@@ -17,7 +20,7 @@ export const AppButton = ({
   backgroundColor = THEME.MAIN_COLOR,
 }) => {
   const Wrapper =
-    Platform.OS === "android" ? TouchableNativeFeedback : TouchableOpacity;
+    Platform.OS === "android" ? TouchableNativeFeedback : TouchableOpacity; //Определение OS
 
   return (
     <Wrapper activeOpacity={0.7} onPress={onPress}>
@@ -39,6 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  
   text: {
     color: "white"
   }

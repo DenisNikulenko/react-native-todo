@@ -11,8 +11,11 @@ import { Ionicons, Fontisto } from "@expo/vector-icons";
 import { AppButton } from "./ui/AppButton";
 import { THEME } from "../theme";
 
+// Компонент изменения существующего ToDO item`s
+
 export const EditModal = ({ value, visible, onCancel, onSave }) => {
   const [title, setTitle] = useState(value);
+  
   const saveHandler = () => {
     if (title.trim().length < 3) {
       Alert.alert(
