@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { StyleSheet, View, FlatList, Image, Dimensions } from "react-native";
 
 import { THEME } from "../theme";
 
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
+import { TodoContext } from "../context/todo/todoContext";
+import { ScreenContext } from "../context/screen/screenContext";
 
 //Главный экран. Создание ToDo item`s, список из существующих, удаление, переход в TodoScreen. Exp in App.
 
-export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => { // Адаптивная верстка под разное разрешение экрана. 
+export const MainScreen =  () => { // Адаптивная верстка под разное разрешение экрана. 
+  const { addTodo, todos, removeTodo } = useContext(TodoContext);
+  const {changeScreen} = useContext(ScreenContext)
   const [deviceWidth, setDivaceWidth] = useState(Dimensions.get("window").width - THEME.PADDING_HORISONTAL * 2);
 
   useEffect(() => { // Запустится 1 раз, во время инициализации компонента.
@@ -30,7 +34,7 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => { // А�
         keyExtractor={item => item.id.toString()}
         data={todos}
         renderItem={({ item }) => (
-          <Todo todo={item} onRemove={removeTodo} onOpen={openTodo} />
+          <Todo todo={item} onRemove={removeTodo} onOpen={changeScreen} />
         )}  
       />
     </View>

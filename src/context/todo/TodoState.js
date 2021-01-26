@@ -1,4 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
+
+import { ScreenContext } from "../screen/screenContext";
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from "../types";
 import { TodoContext } from "./todoContext";
 import { todoReducer } from "./todoReducer";
@@ -9,7 +11,10 @@ export const TodoState = ({ children }) => {
       { id: "1", title: "Выучить React Native" },
       { id: "2", title: "test context" },
     ],
+    logo: "Todo..."
   };
+
+  const { changeScreen } = useContext(ScreenContext);
 
   const [state, dispatch] = useReducer(todoReducer, initialState);
 
@@ -18,6 +23,7 @@ export const TodoState = ({ children }) => {
   };
 
   const removeTodo = (id) => {
+    changeScreen(null)
     dispatch({ type: REMOVE_TODO, id });
   };
 
@@ -28,6 +34,7 @@ export const TodoState = ({ children }) => {
   return (
     <TodoContext.Provider
       value={{
+        logo: state.logo,
         todos: state.todos,
         addTodo,
         removeTodo,

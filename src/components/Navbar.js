@@ -7,7 +7,8 @@ import { AppTextBold } from "./ui/AppTextBold";
 
 //Адаптивный header под Android, Ios. Exp in App.
 
-export const Navbar = ({ title }) => {
+export const Navbar = ({ logo }) => {
+  console.log(logo)
   let content = (
     <View
       style={{
@@ -19,7 +20,7 @@ export const Navbar = ({ title }) => {
       }}
     >
       <MaterialIcons name="notes" size={24} color="white" />
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{ logo }</Text>
     </View>
   );
   return (
