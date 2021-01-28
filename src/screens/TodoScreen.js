@@ -9,8 +9,6 @@ import { THEME } from "../theme";
 
 import { EditModal } from "../components/EditModal";
 
-// 2й Экран. Изм item`s, удаление, возврат на MainScreen. Exp in App.
-
 export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
   const [modal, setModal] = useState(false);
 

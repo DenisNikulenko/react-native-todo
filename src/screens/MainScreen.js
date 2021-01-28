@@ -8,16 +8,14 @@ import { Todo } from "../components/Todo";
 import { TodoContext } from "../context/todo/todoContext";
 import { ScreenContext } from "../context/screen/screenContext";
 
-//Главный экран. Создание ToDo item`s, список из существующих, удаление, переход в TodoScreen. Exp in App.
-
-export const MainScreen =  () => { // Адаптивная верстка под разное разрешение экрана. 
+export const MainScreen =  () => { 
   const { addTodo, todos, removeTodo } = useContext(TodoContext);
   const {changeScreen} = useContext(ScreenContext)
   const [deviceWidth, setDivaceWidth] = useState(Dimensions.get("window").width - THEME.PADDING_HORISONTAL * 2);
 
-  useEffect(() => { // Запустится 1 раз, во время инициализации компонента.
+  useEffect(() => { 
     const update = () => {
-      const width = Dimensions.get("window").width - THEME.PADDING_HORISONTAL * 2; // Получение width и добавление отступов.
+      const width = Dimensions.get("window").width - THEME.PADDING_HORISONTAL * 2; 
       setDivaceWidth(width);
     }
     

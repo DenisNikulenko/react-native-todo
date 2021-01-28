@@ -11,8 +11,6 @@ import { Ionicons, Fontisto } from "@expo/vector-icons";
 import { AppButton } from "./ui/AppButton";
 import { THEME } from "../theme";
 
-// Компонент изменения существующего ToDO item`s
-
 export const EditModal = ({ value, visible, onCancel, onSave }) => {
   const [title, setTitle] = useState(value);
   
@@ -40,19 +38,12 @@ export const EditModal = ({ value, visible, onCancel, onSave }) => {
           maxLength={64}
         />
         <View style={styles.buttons}>
-          {/* <Button
-            title="Cancel"
-            onPress={onCancel}
-            color={THEME.DANGER_COLOR}
-          /> */}
           <AppButton onPress={onCancel} backgroundColor={THEME.DANGER_COLOR}>
             <Ionicons name="arrow-back" size={22} color="white" />
           </AppButton>
           <AppButton  onPress={saveHandler}>
             <Fontisto name="save" size={24} color="white" />
           </AppButton>
-
-          {/* <Button title="Save" onPress={saveHandler} /> */}
         </View>
       </View>
     </Modal>
